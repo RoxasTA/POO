@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Escolha a direção da conversão:\n1. Celsius para Fahrenheit\n2. Fahrenheit para Celsius\nOpção: ");
+        int opcao = scanner.nextInt();
+
+        double temperaturaConvertida = 0;
+
+        if (opcao == 1) {
+            System.out.print("Digite a temperatura em Celsius: ");
+            double celsius = scanner.nextDouble();
+            temperaturaConvertida = celsiusToFahrenheit(celsius);
+            System.out.println("Temperatura em Fahrenheit: " + temperaturaConvertida + " °F");
+        } else if (opcao == 2) {
+            System.out.print("Digite a temperatura em Fahrenheit: ");
+            double fahrenheit = scanner.nextDouble();
+            temperaturaConvertida = fahrenheitToCelsius(fahrenheit);
+            System.out.println("Temperatura em Celsius: " + temperaturaConvertida + " °C");
+        } else {
+            System.out.println("Opção inválida.");
+        }
+
+        scanner.close();
+    }
+
+    public static double celsiusToFahrenheit(double celsius) {
+        return celsius * 9/5 + 32;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+}
